@@ -129,9 +129,9 @@
             <url>https://repo.artillex-studios.com/releases/</url>
         </repository>
         <repository>
-            <id>fancyplugins-releases</id>
-            <name>FancyPlugins Repository</name>
-            <url>https://repo.fancyplugins.de/releases</url>
+            <id>fancyinnovations-releases</id>
+            <name>FancyInnovations Repository</name>
+            <url>https://repo.fancyinnovations.com/releases</url>
         </repository>
     </repositories>
 
@@ -230,13 +230,6 @@
             <groupId>com.github.DeadSilenceIV</groupId>
             <artifactId>AdvancedChestsAPI</artifactId>
             <version>LATEST</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- FabledSkyblock -->
-        <dependency>
-            <groupId>com.craftaro</groupId>
-            <artifactId>FabledSkyBlock</artifactId>
-            <version>3.0.4-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <!-- PlotSquared -->

@@ -22,7 +22,6 @@ import com.muhammaddaffa.nextgens.generators.runnables.CorruptionTask;
 import com.muhammaddaffa.nextgens.generators.runnables.GeneratorTask;
 import com.muhammaddaffa.nextgens.generators.runnables.NotifyTask;
 import com.muhammaddaffa.nextgens.hooks.bento.BentoListener;
-import com.muhammaddaffa.nextgens.hooks.fabledsb.FabledSbListener;
 import com.muhammaddaffa.nextgens.hooks.papi.GensExpansion;
 import com.muhammaddaffa.nextgens.hooks.ssb2.SSB2Listener;
 import com.muhammaddaffa.nextgens.sell.listeners.HandSellListener;
@@ -277,10 +276,6 @@ public final class NextGens extends JavaPlugin {
         if (pm.getPlugin("Bolt") != null) {
             Logger.info("Found Bolt! Registering hook...");
             this.boltAPI = Bukkit.getServicesManager().load(BoltAPI.class);
-        }
-        if (pm.getPlugin("FabledSkyblock") != null) {
-            Logger.info("Found FabledSkyblock! Registering hook...");
-            pm.registerEvents(new FabledSbListener(this.generatorManager, this.refundManager), this);
         }
         // Slimefun integration
         if (pm.isPluginEnabled("Slimfun")) {
