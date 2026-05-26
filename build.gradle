@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    alias(libs.plugins.shadow)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.get() as int)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compileOnly libs.spigot.api
+    compileOnly libs.vault.api
+    compileOnly libs.placeholderapi
+    compileOnly libs.shopgui.api
+    compileOnly libs.superior.skyblock.api
+    compileOnly libs.bentobox
+    compileOnly libs.decent.holograms
+    compileOnly libs.holographic.displays.api
+    compileOnly libs.wildtools.api
+    compileOnly libs.deluxe.sellwands.api
+    compileOnly libs.lwc
+    compileOnly libs.advanced.chests.api
+    compileOnly platform(libs.intellectualsites.bom)
+    compileOnly libs.plotsquared.core
+    compileOnly(libs.plotsquared.bukkit) {
+        exclude group: 'com.intellectualsites.plotsquared', module: 'plotsquared-core'
+    }
+    compileOnly libs.squirrelid
+    compileOnly libs.slimefun4
+    // Bolt's Gradle module metadata points to bolt-bukkit-<v>-noshade.jar, which omits
+    // org.popcraft.bolt.protection.*. The POM-default jar is the shaded one Maven uses.
+    // The @jar suffix bypasses module metadata and matches Maven's behaviour.
+    compileOnly(libs.bolt.bukkit.map { "$it@jar" })
+    compileOnly libs.fancy.holograms
+
+    implementation libs.mdlib
+    implementation libs.bstats.bukkit
+    implementation libs.hikaricp
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('plugin.yml') {
+        expand project: [version: project.version]
+    }
+}
+
+shadowJar {
+    archiveClassifier = ''
+
+    relocate 'com.zaxxer.hikari', 'com.muhammaddaffa.nextgens.database.hikaricp'
+    relocate 'org.bstats', 'com.muhammaddaffa.nextgens.utils.bstats'
+    relocate 'com.muhammaddaffa.mdlib', 'com.muhammaddaffa.nextgens.mdlib'
+}
+
+jar {
+    enabled = false
+}
+
+assemble.dependsOn shadowJar

@@ -1,0 +1,68 @@
+[versions]
+# Toolchain
+java = "21"
+
+# Server API
+spigot-api = "1.21.10-R0.1-SNAPSHOT"
+
+# Soft-depend plugin APIs (compileOnly)
+vault = "1.7.1"
+placeholderapi = "2.11.6"
+shopgui = "3.0.0"
+superior-skyblock = "2024.1"
+bentobox = "1.24.2-SNAPSHOT"
+decent-holograms = "2.8.3"
+holographic-displays = "3.0.0"
+wildtools = "2024.1"
+deluxe-sellwands = "32c"
+lwc = "2.2.9-dev"
+advanced-chests = "3.3"
+squirrelid = "0.3.2"
+slimefun = "RC-37"
+bolt = "1.1.33"
+fancy-holograms = "2.8.0"
+
+# BOM
+intellectualsites-bom = "1.52"
+
+# Shaded into the final JAR
+mdlib = "2.3.4"
+bstats = "3.1.0"
+hikaricp = "6.3.0"
+
+# Build plugins
+shadow = "8.3.5"
+
+[libraries]
+# Server API
+spigot-api = { module = "org.spigotmc:spigot-api", version.ref = "spigot-api" }
+
+# Soft-depend plugin APIs
+vault-api = { module = "com.github.MilkBowl:VaultAPI", version.ref = "vault" }
+placeholderapi = { module = "me.clip:placeholderapi", version.ref = "placeholderapi" }
+shopgui-api = { module = "com.github.brcdev-minecraft:shopgui-api", version.ref = "shopgui" }
+superior-skyblock-api = { module = "com.bgsoftware:SuperiorSkyblockAPI", version.ref = "superior-skyblock" }
+bentobox = { module = "world.bentobox:bentobox", version.ref = "bentobox" }
+decent-holograms = { module = "com.github.decentsoftware-eu:decentholograms", version.ref = "decent-holograms" }
+holographic-displays-api = { module = "me.filoghost.holographicdisplays:holographicdisplays-api", version.ref = "holographic-displays" }
+wildtools-api = { module = "com.bgsoftware:WildToolsAPI", version.ref = "wildtools" }
+deluxe-sellwands-api = { module = "com.github.N0RSKA:DeluxeSellwandsAPI", version.ref = "deluxe-sellwands" }
+lwc = { module = "com.griefcraft:lwc", version.ref = "lwc" }
+advanced-chests-api = { module = "com.github.DeadSilenceIV:AdvancedChestsAPI", version.ref = "advanced-chests" }
+plotsquared-core = { module = "com.intellectualsites.plotsquared:plotsquared-core" }
+plotsquared-bukkit = { module = "com.intellectualsites.plotsquared:plotsquared-bukkit" }
+squirrelid = { module = "org.enginehub:squirrelid", version.ref = "squirrelid" }
+slimefun4 = { module = "com.github.Slimefun:Slimefun4", version.ref = "slimefun" }
+bolt-bukkit = { module = "org.popcraft:bolt-bukkit", version.ref = "bolt" }
+fancy-holograms = { module = "de.oliver:FancyHolograms", version.ref = "fancy-holograms" }
+
+# BOM (applied with `platform(...)`)
+intellectualsites-bom = { module = "com.intellectualsites.bom:bom-newest", version.ref = "intellectualsites-bom" }
+
+# Shaded
+mdlib = { module = "com.github.mdaffa48:MDLib", version.ref = "mdlib" }
+bstats-bukkit = { module = "org.bstats:bstats-bukkit", version.ref = "bstats" }
+hikaricp = { module = "com.zaxxer:HikariCP", version.ref = "hikaricp" }
+
+[plugins]
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
